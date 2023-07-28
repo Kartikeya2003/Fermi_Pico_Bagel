@@ -1,0 +1,38 @@
+#Project
+
+#USING RANDOM LIBRARIES FOR CREATING A RANDOM INTEGER
+import random
+x=0
+r_number=random.randint(100,1000)
+str1=str(r_number)
+h=r_number//100
+t=(r_number//10)-(h*10)
+u=r_number%10
+
+print("GUESS THE NUMBER ")
+
+#CONDITIONAL TO CHECK REPEATED DIGITS IN THE GENERATED NUMBER 
+if h==t==u:
+    x=1
+else:
+  while x==0: #LOOP  FOR GUESSING THE NUMBER
+    number= int(input("Enter 3 Digit number"))
+    str2=str(number)
+    flag=0
+
+
+    if r_number==number:    #  WINNING CONDITION
+      print("Fermi Fermi Fermi")
+      break
+    else:
+      for k in range(len(str1)):
+        if str2[k] in str1 and str1[k]==str2[k]:
+          flag=1
+          print("fermi",end=" ")
+        elif str2[k] in str1:
+          print("pico",end=" ")
+          flag=1
+      if flag==0:
+          print("Bagel")
+
+
